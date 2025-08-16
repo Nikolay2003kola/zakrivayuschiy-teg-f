@@ -76,7 +76,14 @@
         border-bottom: none;
     }
     
-    .content_description,
+    .content_description {
+        padding: 25px 25px 0 25px;
+        font-size: 18px;
+        font-weight: 410;
+        border-left: 2px solid #000;
+        border-right: 2px solid #000;
+    }
+    
     .content_description_stading_place {
         font-size: 18px;
         font-weight: 410;
@@ -111,7 +118,6 @@
         text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
     }
     
-    .content_description,
     .content_description_stading_place {
         padding: 25px 25px 0 25px;
     }
