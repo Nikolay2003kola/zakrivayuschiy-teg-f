@@ -24,6 +24,8 @@
         width: 38px;
         height: 38px;
         padding: 0;
+        border: 2px solid transparent;
+        transition: border 0.3s ease;
     }
     
     .header {
@@ -206,21 +208,22 @@
     
     .dialog_frame_description_text {
         width: 234px;
-    }
-    
-    .save_button_image {
-        width: clamp(21px, calc(28px + (21 - 28)*(100vw - 375px)/(1440 - 375)), 28px);
-    }
-    
-    .save_button_text {
-        width: 266px;
-    }
-    
-    .dialog_frame_description_text {
         font-family: var(--accent-font);
         font-size: 14px;
         line-height: 150%;
         text-transform: uppercase;
+    }
+    
+    .save_button_image {
+        width: clamp(21px, calc(28px + (21 - 28)*(100vw - 375px)/(1440 - 375)), 28px);
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        mix-blend-mode: difference;
+    }
+    
+    .save_button_text {
+        width: 266px;
     }
     
     .card__like-button,
@@ -258,11 +261,6 @@
         background-color: #000;
     }
     
-    .card__icon-button {
-        border: 2px solid transparent;
-        transition: border 0.3s ease;
-    }
-    
     .card__icon-button:focus-visible {
         border: 2px solid #000;
     }
@@ -273,13 +271,6 @@
         position: relative;
         z-index: 2;
         color: #ffffff;
-        mix-blend-mode: difference;
-    }
-    
-    .save_button_image {
-        position: relative;
-        z-index: 2;
-        color: #fff;
         mix-blend-mode: difference;
     }
     /*сердцевина*/
@@ -397,8 +388,6 @@
     @media (width <=375px) {
         .save_button {
             height: 84px;
-        }
-        .save_button {
             flex-direction: column;
             gap: 8px;
         }
