@@ -29,7 +29,8 @@
     }
     
     .header {
-        height: clamp(327px, calc(327px + (368 - 327)*(100vw - 375px)/(1440 - 375)), 368px);
+        padding-bottom: clamp(120px, calc(120px + (130 - 120)*(100vw - 375px)/(1440 - 375)), 130px);
+        padding-top: clamp(120px, calc(120px + (130 - 120)*(100vw - 375px)/(1440 - 375)), 130px);
         margin-left: auto;
         margin-right: auto;
         margin-bottom: clamp(98px, calc(100px + (98 - 100)*(100vw - 375px)/(1440 - 375)), 100px);
@@ -43,12 +44,12 @@
         background-color: #fff;
     }
     
-    .html {
+    .header_title {
         font-size: clamp(49px, calc(49px + (65 - 49)*(100vw - 375px)/(1440 - 375)), 65px);
         text-transform: uppercase;
     }
     
-    .closing_teg {
+    .header_title_description {
         font-size: clamp(14px, calc(14px + (23 - 14)*(100vw - 375px)/(1440 - 375)), 23px);
         text-transform: uppercase;
     }
@@ -58,7 +59,7 @@
     }
     /*____________MAIN_________*/
     
-    .content_first_sprint_preparing {
+    .content_stage {
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 50px;
@@ -69,7 +70,7 @@
     
     .content_title {
         font-size: 18px;
-        font-weight: 715;
+        font-variation-settings: 'wght' 715;
         padding: 4px 10px;
         line-height: 22px;
         border: 2px solid #000;
@@ -79,14 +80,7 @@
     .content_description {
         padding: 25px 25px 0 25px;
         font-size: 18px;
-        font-weight: 410;
-        border-left: 2px solid #000;
-        border-right: 2px solid #000;
-    }
-    
-    .content_description_stading_place {
-        font-size: 18px;
-        font-weight: 410;
+        font-variation-settings: 'wght' 410;
         border-left: 2px solid #000;
         border-right: 2px solid #000;
     }
@@ -111,15 +105,11 @@
         position: absolute;
         top: 25px;
         right: 25px;
-        font-family: var(--accent-font);
+        font-family: var(--accent-font), sans-serif;
         font-size: 14px;
         opacity: 50%;
         mix-blend-mode: hard-light;
         text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
-    }
-    
-    .content_description_stading_place {
-        padding: 25px 25px 0 25px;
     }
     
     .content_icons {
@@ -132,7 +122,18 @@
         border-right: 2px solid #000;
     }
     
-    .card__icon-button,
+    .button {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        transition: box-shadow 0.3s ease;
+        position: relative;
+    }
+    /*
     .card__like-button,
     .content_save_button,
     .dialog_frame_exit_button {
@@ -143,6 +144,7 @@
         align-items: center;
         justify-content: center;
     }
+    */
     
     .card__like-button {
         width: 130px;
@@ -152,7 +154,7 @@
     
     .button__text,
     .save_button {
-        font-family: var(--accent-font);
+        font-family: var(--accent-font), sans-serif;
         font-size: 14px;
         line-height: 90%;
     }
@@ -165,12 +167,16 @@
         align-items: center;
         justify-content: center;
         gap: 8px;
+        background-color: #fff;
     }
     
     .content_save_button {
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .dialog_frame {
@@ -196,7 +202,7 @@
         height: 38px;
         width: 100%;
         border: 2px solid #000;
-        font-family: var(--accent-font);
+        font-family: var(--accent-font), sans-serif;
         font-size: 14px;
         line-height: 90%;
     }
@@ -214,7 +220,7 @@
     
     .dialog_frame_description_text {
         width: 234px;
-        font-family: var(--accent-font);
+        font-family: var(--accent-font), sans-serif;
         font-size: 14px;
         line-height: 150%;
         text-transform: uppercase;
@@ -232,39 +238,22 @@
         width: 266px;
     }
     
-    .card__like-button,
-    .save_button,
-    .dialog_frame_exit_button {
-        outline: none;
-        transition: box-shadow 0.3s ease;
-        position: relative;
-    }
-    
-    .card__like-button:focus,
-    .save_button:focus,
-    .dialog_frame_exit_button:focus {
+    .button:not(.is-liked):focus {
         box-shadow: 2px 2px 0 #000;
     }
     
-    .card__like-button::after,
-    .save_button::after,
-    .dialog_frame_exit_button::after {
+    .button:not(.is-liked)::after {
         content: '';
         position: absolute;
         width: 0%;
         height: 100%;
+        background-color: #000;
         transition: width 0.5s ease-in-out;
         left: 0;
     }
     
-    .card__like-button:hover::after,
-    .save_button:hover::after,
-    .dialog_frame_exit_button:hover::after {
-        content: '';
-        position: absolute;
+    .button:not(.is-liked):hover::after {
         width: 100%;
-        height: 100%;
-        background-color: #000;
     }
     
     .card__icon-button:focus-visible {
@@ -278,6 +267,10 @@
         z-index: 2;
         color: #ffffff;
         mix-blend-mode: difference;
+    }
+    
+    .ok_button_text {
+        text-transform: uppercase;
     }
     /*сердцевина*/
     
@@ -351,35 +344,35 @@
         opacity: 0.75;
     }
     
-    .image_preparing {
+    .filter_contrast {
         filter: contrast(110%);
     }
     
-    .image_clean_paper {
+    .filter_saturate {
         filter: saturate(200%);
     }
     
-    .image_doubt {
+    .filter_brightness {
         filter: brightness(110%);
     }
     
-    .image_perfect {
+    .filter_grayscale {
         filter: grayscale(1);
     }
     
-    .image_who_nearby {
+    .filter_sepia {
         filter: sepia(20%);
     }
     
-    .image_strategy {
+    .filter_hue_rotate {
         filter: hue-rotate(-310deg);
     }
     
-    .image_hands_go_down {
+    .filter_invert {
         filter: invert(0.2);
     }
     
-    .image_hear {
+    .filter_mixing {
         filter: sepia(0.2) contrast(140%) brightness(120%);
     }
     
