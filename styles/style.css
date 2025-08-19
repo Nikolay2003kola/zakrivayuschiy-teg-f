@@ -24,7 +24,8 @@
         width: 38px;
         height: 38px;
         padding: 0;
-        border: 2px solid transparent;
+        border: 2px solid;
+        border-color: transparent;
         transition: border 0.3s ease;
     }
     
@@ -124,27 +125,17 @@
     
     .button {
         outline: none;
-        border: none;
         background-color: transparent;
         display: flex;
         align-items: center;
         justify-content: center;
         outline: none;
-        transition: box-shadow 0.3s ease;
         position: relative;
     }
-    /*
-    .card__like-button,
-    .content_save_button,
-    .dialog_frame_exit_button {
-        outline: none;
-        border: none;
-        background-color: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    
+    .button:not(.card__icon-button) {
+        transition: box-shadow 0.3s ease;
     }
-    */
     
     .card__like-button {
         width: 130px;
@@ -256,7 +247,7 @@
         width: 100%;
     }
     
-    .card__icon-button:focus-visible {
+    .is-liked:focus-visible {
         border: 2px solid #000;
     }
     
